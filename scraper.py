@@ -23,14 +23,13 @@ for url in year_list:
   award_list.append(award_url)
   break
 #Get nominations for each category & year combination
-nomination_list=[]
-award_nomination_dictionary = {}
 for url in award_list:
   html_nomination = requests.get(url).text
   root_nomination = lxml.html.fromstring(html_nomination)
   nominations_text = "|".join(text.text_content() for text in root_nomination.xpath("//tr[td]"))
   nominations_id = "|".join(text.partition("NominationID=")[2]+url for text in root_nomination.xpath("//tr/td/div/a/@href"))
-  print nominations_id
+  nominations_movie = "|".join(text.partition(" -- ")[2] for text in root_nomination.xpath("//tr/td/div")
+  print nominations_movie
   break
   
   #root_nomination.xpath("//dl/table")
