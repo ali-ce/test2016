@@ -35,7 +35,7 @@ for url in award_list:
     else:
       win = "No"
     print win
-  print text.text_content[0]
+  print text[0]
 #      win = "Yes"
  #   else:
    #   win = "No"
