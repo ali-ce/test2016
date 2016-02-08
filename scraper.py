@@ -29,7 +29,10 @@ for url in award_list:
   html_nomination = requests.get(url).text
   root_nomination = lxml.html.fromstring(html_nomination)
   nominations = root_nomination.xpath("//td/div/a/@href")
-  print nominations
+  for nomination in nominations:
+    nomination_id = nominations.partition("NominationID=")[1]
+    print nomination_id
+  break
 
 # root.cssselect("div[align='left']")
 #
