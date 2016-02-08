@@ -23,7 +23,7 @@ for url in year_list:
   award_list.append(award_url)
   break
 #Get nominations for each category & year combination
-year_scraped = 1
+year_scraped = 0
 for url in award_list:
   html_nomination = requests.get(url).text
   root_nomination = lxml.html.fromstring(html_nomination)
