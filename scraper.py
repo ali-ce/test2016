@@ -39,7 +39,7 @@ for url in award_list:
     win_list.append(win)
     print win
     print win_list
-  award_winner = "|".join(text for text in win_list)
+  award_winner = "|".join(word for word in win_list)
   print award_winner
   break
   #Iterate in each row to get the clean names of the nominees for each nominations
