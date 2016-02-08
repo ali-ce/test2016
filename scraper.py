@@ -26,21 +26,31 @@ for url in year_list:
 nomination_list=[]
 award_nomination_dictionary = {}
 for url in award_list:
+  #Get the movie for each nomination
   html_nomination = requests.get(url).text
   root_nomination = lxml.html.fromstring(html_nomination)
-  nominations = root_nomination.xpath("//td/div/a/@href")
-  for nomination in nominations:
-    nomination_id = nomination.partition("NominationID=")[2]
-    nomination_url = "http://awardsdatabase.oscars.org/ampas_awards/BasicSearch?action=searchLink&displayType=6&BSNominationID="+nomination_id
-    nomination_list.append(nomination_url)
-    #Trace each nomination to its award & year id, for future reference
-    award_nomination_dictionary.update({url : nomination_id})
-    print award_nomination_dictionary
+  #Get movies for each nomination
+  nominated_movies = root.nomination.xpath("//tr/td")
+  print nominated_movies
   break
+  
+  
+  #nominations = root_nomination.xpath("//td/div/a/@href")
+  #for nomination in nominations:
+   # nomination_id = nomination.partition("NominationID=")[2]
+    #nomination_url = "http://awardsdatabase.oscars.org/ampas_awards/BasicSearch?action=searchLink&displayType=6&BSNominationID="+nomination_id
+    #nomination_list.append(nomination_url)
+  
+  
+    
+    #Get whether the nomination was a win
+    
+    #Trace each nomination to its award & year id, for future reference
+    #award_nomination_dictionary.update({url : nomination_id})
+  #break
+#Get the actual nominees for each nomination ID
 
-#Create a dictionary mapping each nomination to its Year and Award Category
-
-#Get nominees and movies for each award & year combination
+#Save the data
 
 
   
