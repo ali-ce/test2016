@@ -8,8 +8,8 @@ import urllib
 year_list = []
 this_edition = 87
 start_edition = 1
-while current_edition <= this_edition:
-  year_url = "http://awardsdatabase.oscars.org/ampas_awards/BasicSearch?action=searchLink&displayType=1&BSFromYear="+str(current_edition)
+while start_edition <= this_edition:
+  year_url = "http://awardsdatabase.oscars.org/ampas_awards/BasicSearch?action=searchLink&displayType=1&BSFromYear="+str(start_edition)
   start_edition = start_edition+1
   year_list.append(year_url)
   
