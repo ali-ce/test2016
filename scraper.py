@@ -29,7 +29,7 @@ for url in award_list:
   html_nomination = requests.get(url).text
   root_nomination = lxml.html.fromstring(html_nomination)
   nominations_text() = "|".join(root_nomination.xpath("//tr")
-  print nominations text()
+  print nominations_text()
   break
   
   #root_nomination.xpath("//dl/table")
