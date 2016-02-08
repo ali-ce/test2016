@@ -51,13 +51,19 @@ for url in award_list:
     nominee_list.append(nominees)
   nominees = "|".join(nominee for nominee in nominee_list)
   #Save to DB
-  data = {
-    'ID' : unique_id,
-    'Text' : text,
-    'Movie' : movie,
-    'Winner' : award_winner,
-    'Nominees' : nominees
-    }
-  scraperwiki.sqlite.save(unique_keys=["ID"], data=data)
-  data={}
+  #data = {
+   # 'ID' : unique_id,
+    #'Text' : text,
+    #'Movie' : movie,
+    #'Winner' : award_winner,
+    #'Nominees' : nominees
+    #}
+  #scraperwiki.sqlite.save(unique_keys=["ID"], data=data)
+  #data={}
+  #break
+  print unique_id
+  print text
+  print movie
+  print award_winner
+  print nominees
   break
