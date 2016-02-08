@@ -15,12 +15,12 @@ while current_edition <= this_edition:
 #Build queries2: list of URLS per single award per year
 
 award_list=[]
-for year in year_list:
-  html_year = requests.get(year).text
+for url in year_list:
+  html_year = requests.get(url).text
   root_year = lxml.html.fromstring(html_year)
-  category_temp = root_year.xpath("//dl/div[1]/a/@href")[0]
-  category_id = category_temp.partition("CategoryExact=")[2].partition("&")[0]
-  print category_id
+  category_id = root_year.xpath("//dl/div[1]/a/@href")[0].partition("CategoryExact=")[2].partition("&")[0]
+  category_url = url+"&BSCategoryExact="&category_id
+  print category_url
   break
 
 
