@@ -1,8 +1,20 @@
-# This is a template for a Python scraper on morph.io (https://morph.io)
-# including some code snippets below that you should find helpful
+import scraperwiki
+import lxml.html
+import requests
+import json
+import urllib
 
-# import scraperwiki
-# import lxml.html
+#Build queries: list URLS of awards per year
+YearList = []
+this_edition = 87
+current_edition = 1
+while current_edition =< this_edition:
+  year_url = "http://awardsdatabase.oscars.org/ampas_awards/BasicSearch?action=searchLink&displayType=1&BSFromYear="&current_edition
+  current_edition = current_edition+1
+  print year_url
+
+
+
 #
 # # Read in a page
 # html = scraperwiki.scrape("http://foo.com")
