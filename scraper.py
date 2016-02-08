@@ -30,11 +30,11 @@ for url in award_list:
   unique_id = "|".join(text.partition("NominationID=")[2]+url for text in root_nomination.xpath("//tr/td/div/a/@href"))
   movie = "|".join(text.text_content().partition(" -- ")[2] for text in root_nomination.xpath("//tr[td]"))
   for text in root_nomination.xpath("//tr[td]"):
-    if text.text_content()[0]="*":
-      win = "Yes"
-    else:
-      win = "No"
-    print win    
+    print text
+#      win = "Yes"
+ #   else:
+   #   win = "No"
+  #  print win    
   #Iterate in each row to get the clean names of the nominees for each nominations
   nominee_url_list=[]
   for url in root_nomination.xpath("//tr/td/div/a/@href"):
