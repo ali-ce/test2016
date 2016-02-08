@@ -9,7 +9,7 @@ YearList = []
 this_edition = 87
 current_edition = 1
 while current_edition <= this_edition:
-  year_url = "http://awardsdatabase.oscars.org/ampas_awards/BasicSearch?action=searchLink&displayType=1&BSFromYear="&str(current_edition)
+  year_url = "http://awardsdatabase.oscars.org/ampas_awards/BasicSearch?action=searchLink&displayType=1&BSFromYear="+str(current_edition)
   current_edition = current_edition+1
   print year_url
 
