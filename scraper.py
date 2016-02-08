@@ -30,7 +30,7 @@ for url in award_list:
   html_nomination = requests.get(url).text
   root_nomination = lxml.html.fromstring(html_nomination)
   #Get movies for each nomination
-  nominated_movies = [name.text_content().partition(" -- ")[2] for name in root_nomination.xpath("//tr[td]")]
+  nominated_movies = [name.text_content().partition(" -- ")[2] for name in root_nomination.xpath("//tr[td]/i")]
   print nominated_movies
   break
   
