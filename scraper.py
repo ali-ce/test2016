@@ -24,6 +24,7 @@ for url in year_list:
   break
 #Get info about each nomination for that category & year combination
 for url in award_list:
+  print url
   # Go to first nomination and get the nominee(s)name
   html_nomination = requests.get(url).text
   root_nomination = lxml.html.fromstring(html_nomination)
