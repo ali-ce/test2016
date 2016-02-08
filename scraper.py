@@ -55,7 +55,7 @@ for url in award_list:
     'ID' : unique_id,
     'Text' : text,
     'Movie' : movie,
-    'Winner" : award_winner,
+    'Winner' : award_winner,
     'Nominees' : nominees
     }
     scraperwiki.sqlite.save(unique_keys=["ID"], data=data)
