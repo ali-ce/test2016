@@ -29,8 +29,8 @@ for url in award_list:
   text = "|".join(text.text_content() for text in root_nomination.xpath("//tr[td]"))
   unique_id = "|".join(text.partition("NominationID=")[2]+url for text in root_nomination.xpath("//tr/td/div/a/@href"))
   movie = "|".join(text.text_content().partition(" -- ")[2] for text in root_nomination.xpath("//tr[td]"))
-  for text in root_nomination.xpath("//tr[td]")):
-    if text[0]="*":
+  for text in root_nomination.xpath("//tr[td]"):
+    if text.text_content()[0]="*":
       win = "Yes"
     else:
       win = "No"
