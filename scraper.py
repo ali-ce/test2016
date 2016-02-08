@@ -21,7 +21,7 @@ for url in year_list:
   category_id = root_year.xpath("//dl/div[1]/a/@href")[0].partition("CategoryExact=")[2].partition("&")[0]
   award_url = url+"&BSCategoryExact="+category_id
   award_list.append(award_url)
-break
+  break
 #Get info about each nomination for that category & year combination
 for url in award_list:
   # Go to first nomination and get the nominee(s)name
