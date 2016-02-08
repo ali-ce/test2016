@@ -21,9 +21,6 @@ for year in year_list:
   category_url = root_year.cssselect("dl div[1] a").get('href')
   print category_url
   break
-  
-   htmlMovie = requests.get(link).text
- rootMovie = lxml.html.fromstring(htmlMovie)
 
 
 
