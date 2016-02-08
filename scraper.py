@@ -34,7 +34,7 @@ for url in award_list:
     nomination_url = "http://awardsdatabase.oscars.org/ampas_awards/BasicSearch?action=searchLink&displayType=6&BSNominationID="+nomination_id
     nomination_list.append(nomination_url)
     #Trace each nomination to its award & year id, for future reference
-    award_nomination_dictionary.update({url : nomination ID})
+    award_nomination_dictionary.update({url : nomination_id})
     print award_nomination_dictionary
   break
 
