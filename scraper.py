@@ -18,7 +18,7 @@ award_list=[]
 for year in year_list:
   html_year = requests.get(year).text
   root_year = lxml.html.fromstring(html_year)
-  category_url = root_year.cssselect("dl div[1] a").get('href')
+  category_url = root_year.xpath("//dl/div[1]/a/@href")
   print category_url
   break
 
