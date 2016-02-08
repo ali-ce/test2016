@@ -29,8 +29,8 @@ for url in award_list:
   text = "|".join(text.text_content() for text in root_nomination.xpath("//tr[td]"))
   unique_id = "|".join(text.partition("NominationID=")[2]+url for text in root_nomination.xpath("//tr/td/div/a/@href"))
   movie = "|".join(text.text_content().partition(" -- ")[2] for text in root_nomination.xpath("//tr[td]"))
-  win = "|".join(text.text_content for text in root_nomination.xpath("//tr/td[@align='RIGHT']"))
-  print win
+  for text in root_nomination.xpath("//tr/td[1]"):
+    print text.text_content
   #Iterate in each row to get the clean names of the nominees for each nominations
   nominee_url_list=[]
   for url in root_nomination.xpath("//tr/td/div/a/@href"):
