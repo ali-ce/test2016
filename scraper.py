@@ -26,7 +26,7 @@ for url in year_list:
 for url in award_list:
   html_nomination = requests.get(url).text
   root_nomination = lxml.html.fromstring(html_nomination)
-  text = "|".join(text.text_content() for text in root_nomination.xpath("//tr"))
+  info = "|".join(text.text_content() for text in root_nomination.xpath("//tr"))
   unique_id = "|".join(text.partition("NominationID=")[2]+url for text in root_nomination.xpath("//tr/td/div/a/@href"))
   movie = "|".join(text.text_content().partition(" -- ")[2] for text in root_nomination.xpath("//tr"))
   win_list=[]
@@ -62,7 +62,7 @@ for url in award_list:
   #data={}
   #break
   print unique_id
-  print text
+  print info
   print movie
   print award_winner
   print nominees
