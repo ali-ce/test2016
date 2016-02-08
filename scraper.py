@@ -4,7 +4,7 @@ import requests
 import json
 import urllib
 
-#Build queries: list URLS of awards per year
+#Build queries 1: list URLS of awards per year
 year_list = []
 this_edition = 87
 current_edition = 1
@@ -12,7 +12,18 @@ while current_edition <= this_edition:
   year_url = "http://awardsdatabase.oscars.org/ampas_awards/BasicSearch?action=searchLink&displayType=1&BSFromYear="+str(current_edition)
   current_edition = current_edition+1
   year_list.append(year_url)
-  print year_list
+#Build queries2: list of URLS per single award per year
+
+award_list=[]
+for year in year_list:
+  html_year = requests.get(year).text
+  root_year = lxml.html.fromstring(html_year)
+  category_url = root_year.cssselect("dl div[1] a").get('href')
+  print category_url
+  break
+  
+   htmlMovie = requests.get(link).text
+ rootMovie = lxml.html.fromstring(htmlMovie)
 
 
 
