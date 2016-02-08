@@ -39,7 +39,7 @@ for url in award_list:
     root_nominees = lxml.html.fromstring(html_nominees)
     nominees = ";".join(name.text_content() for name in root_nominees.xpath("//b/a"))
     nominee_list.append(nominees)
-  nominations_nominees = "|".join(nominee for nominee in nominees_list)
+  nominations_nominees = "|".join(nominee for nominee in nominee_list)
   print nominations_nominees
     
     
