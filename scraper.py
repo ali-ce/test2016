@@ -31,13 +31,13 @@ for url in award_list:
   movie = "|".join(text.text_content().partition(" -- ")[2] for text in root_nomination.xpath("//tr[td]"))
   for text in root_nomination.xpath("//tr"):
     temp = text.text_content()
+    win_list=[]
     if temp[1] is "*":
       win = "Yes"
     else:
       win = "No"
-    print win
-  print temp[1]
-
+    win_list.append(win)
+  award_winner = "|" join(text for text in win_list)
   #Iterate in each row to get the clean names of the nominees for each nominations
   nominee_url_list=[]
   for url in root_nomination.xpath("//tr/td/div/a/@href"):
@@ -50,52 +50,14 @@ for url in award_list:
     nominees = ";".join(name.text_content() for name in root_nominees.xpath("//b/a"))
     nominee_list.append(nominees)
   nominees = "|".join(nominee for nominee in nominee_list)
-
-#Save to DB
-
-    
-    
-  #nominations_nominees = "|".join(text for text in root_nomination.xpath("//tr[td]"))
-  
-  #root_nomination.xpath("//dl/table")
-  #print nominations
-  #for nomination in nominations:
-   # nomination_text = nomination.text_content()
-    #nomination_id = nomination.xpath("//tr/td/div/a/@href")
-    #print nomination_id
-  break  
-    
- # for nomination in nomination:
-  #  nomination_id = nominations.partition("NominationID=")[2]
-   # unique_id = "ID"+nomination_id+url
-  
-  #Get movies for each nomination
-  #for row in root_nomination.xpath("//tr[1]")]:
-  #  nominated_movies = row.text_content().partition(" -- ")[2]
-#    nomination_win = 
- # print nominated_movies
-
-  #nominations = root_nomination.xpath("//td/div/a/@href")
-  #for nomination in nominations:
-   # nomination_id = nomination.partition("NominationID=")[2]
-    #nomination_url = "http://awardsdatabase.oscars.org/ampas_awards/BasicSearch?action=searchLink&displayType=6&BSNominationID="+nomination_id
-    #nomination_list.append(nomination_url)
-  
-  
-    
-    #Get whether the nomination was a win
-    
-    #Trace each nomination to its award & year id, for future reference
-    #award_nomination_dictionary.update({url : nomination_id})
-  #break
-#Get the actual nominees for each nomination ID
-
-#Save the data
-
-
-  
-
-# root.cssselect("div[align='left']")
-#
-# # Write out to the sqlite database using scraperwiki library
-# scraperwiki.sqlite.save(unique_keys=['name'], data={"name": "susan", "occupation": "software developer"})
+  #Save to DB
+  data = {
+    'ID' = unique_id,
+    'Text' = text,
+    'Movie' = movie,
+    'Winner" = award_winner,
+    'Nominees' = nominees
+    }
+    scraperwiki.sqlite.save(unique_keys=["ID"], data=data)
+    data{}
+    break
