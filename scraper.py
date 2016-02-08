@@ -27,7 +27,7 @@ for url in award_list:
   # Go to first nomination and get the nominee(s)name
   html_nomination = requests.get(url).text
   root_nomination = lxml.html.fromstring(html_nomination)
-  nominees = root_nomination.xpath("//b/a/text()")
+  nominees = root_nomination.cssselect("b a").text_content()
   print nominees
   break
   
