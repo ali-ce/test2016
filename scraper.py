@@ -20,8 +20,7 @@ for year in year_list:
   root_year = lxml.html.fromstring(html_year)
   category_temp = root_year.xpath("//dl/div[1]/a/@href").text()
   category_id = category_temp.partition("CategoryExact=")[1]
-  
-  category_url
+  print category_id
   break
 
 
