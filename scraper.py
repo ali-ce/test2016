@@ -53,7 +53,7 @@ for url in award_list:
   #Save to DB
   data = {
     'ID' : unique_id,
-    'Text' : text,
+    'Text' : info,
     'Movie' : movie,
     'Winner' : award_winner,
     'Nominees' : nominees
