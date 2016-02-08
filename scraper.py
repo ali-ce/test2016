@@ -41,6 +41,7 @@ for url in award_list:
     print win_list
   award_winner = "|".join(text for text in win_list)
   print award_winner
+  break
   #Iterate in each row to get the clean names of the nominees for each nominations
   nominee_url_list=[]
   for url in root_nomination.xpath("//tr/td/div/a/@href"):
