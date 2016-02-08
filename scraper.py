@@ -29,7 +29,13 @@ for url in award_list:
   nominations_text = "|".join(text.text_content() for text in root_nomination.xpath("//tr[td]"))
   nominations_id = "|".join(text.partition("NominationID=")[2]+url for text in root_nomination.xpath("//tr/td/div/a/@href"))
   nominations_movie = "|".join(text.text_content().partition(" -- ")[2] for text in root_nomination.xpath("//tr[td]"))
-  print nominations_movie
+  nominees_list = []
+  for link in root_nomination.xpath("//tr/td/div/a/@href"))
+    nominations_url ="http://awardsdatabase.oscars.org/ampas_awards/BasicSearch?action=searchLink&displayType=6&BSNominationID="+link.partition("NominationID=")[2]  
+    print nominations_url
+    break
+  #nominations_nominees = "|".join(text for text in root_nomination.xpath("//tr[td]"))
+ 
   break
   
   #root_nomination.xpath("//dl/table")
