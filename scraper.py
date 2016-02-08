@@ -29,15 +29,16 @@ for url in award_list:
   html_nomination = requests.get(url).text
   root_nomination = lxml.html.fromstring(html_nomination)
   nominations = root_nomination.xpath("//tr")
-  for nomination in nominations:
-    nomination_id = nomination.xpath("//tr/td/div/a/@href")
-    print nomination_id
-    break  
+  for nomination in nominations
+  print nominations.text_content()
+  #nomination_id = nomination.xpath("//tr/td/div/a/@href")
+  
+  
+break  
     
  # for nomination in nomination:
   #  nomination_id = nominations.partition("NominationID=")[2]
    # unique_id = "ID"+nomination_id+url
-  print nominations
   
   #Get movies for each nomination
   #for row in root_nomination.xpath("//tr[1]")]:
