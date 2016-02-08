@@ -30,7 +30,7 @@ for url in award_list:
   root_nomination = lxml.html.fromstring(html_nomination)
   nominations = root_nomination.xpath("//td/div/a/@href")
   for nomination in nominations:
-    nomination_id = nomination.partition("NominationID=")[1]
+    nomination_id = nomination.partition("NominationID=")[2]
     print nomination_id
   break
 
