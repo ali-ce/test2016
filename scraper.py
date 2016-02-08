@@ -28,7 +28,7 @@ award_nomination_dictionary = {}
 for url in award_list:
   html_nomination = requests.get(url).text
   root_nomination = lxml.html.fromstring(html_nomination)
-  nominations_text = "|".join(root_nomination.xpath("//tr"))
+  nominations_text = "|".join(text.text_content()) for text in root_nomination.xpath("//tr")
   print nominations_text
   break
   
