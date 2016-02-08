@@ -59,5 +59,5 @@ for url in award_list:
     'Nominees' : nominees
     }
   scraperwiki.sqlite.save(unique_keys=["ID"], data=data)
-  data{}
+  data={}
   break
