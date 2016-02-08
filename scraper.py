@@ -31,7 +31,11 @@ for url in award_list:
   movie = "|".join(text.text_content().partition(" -- ")[2] for text in root_nomination.xpath("//tr[td]"))
   for text in root_nomination.xpath("//tr[td]"):
     temp = text.text_content()
-    print temp
+    if temp[0]="*":
+      win = "Yes"
+    else:
+      win = "No"
+    print win
 #      win = "Yes"
  #   else:
    #   win = "No"
