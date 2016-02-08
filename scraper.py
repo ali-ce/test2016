@@ -22,18 +22,28 @@ for url in year_list:
   award_url = url+"&BSCategoryExact="+category_id
   award_list.append(award_url)
   break
-#Get info about each nomination for that category & year combination
+#Get nominations for each category & year combination
 nomination_list=[]
+award_nomination_dictionary = {}
 for url in award_list:
-  # Get list of all nominations
   html_nomination = requests.get(url).text
   root_nomination = lxml.html.fromstring(html_nomination)
   nominations = root_nomination.xpath("//td/div/a/@href")
   for nomination in nominations:
     nomination_id = nomination.partition("NominationID=")[2]
     nomination_url = "http://awardsdatabase.oscars.org/ampas_awards/BasicSearch?action=searchLink&displayType=6&BSNominationID="+nomination_id
-    print nomination_url
+    nomination_list.append(nomination_url)
+    #Trace each nomination to its award & year id, for future reference
+    award_nomination_dictionary.update({url : nomination ID})
+    print award_nomination_dictionary
   break
+
+#Create a dictionary mapping each nomination to its Year and Award Category
+
+#Get nominees and movies for each award & year combination
+
+
+  
 
 # root.cssselect("div[align='left']")
 #
