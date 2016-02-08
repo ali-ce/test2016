@@ -20,7 +20,7 @@ for url in year_list:
   root_year = lxml.html.fromstring(html_year)
   category_id = root_year.xpath("//dl/div[1]/a/@href")[0].partition("CategoryExact=")[2].partition("&")[0]
   award_url = url+"&BSCategoryExact="+category_id
-  award_url.append(award_list)
+  award_list.append(award_url)
 
 #Get info about each nomination for that category & year combination
 for url in award_list:
