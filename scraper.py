@@ -31,7 +31,8 @@ for url in award_list:
   nominations = root_nomination.xpath("//td/div/a/@href")
   for nomination in nominations:
     nomination_id = nomination.partition("NominationID=")[2]
-    print nomination_id
+    nomination_url = "http://awardsdatabase.oscars.org/ampas_awards/BasicSearch?action=searchLink&displayType=6&BSNominationID="+nomination_id
+    print nomination_url
   break
 
 # root.cssselect("div[align='left']")
