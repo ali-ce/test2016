@@ -23,15 +23,13 @@ for url in year_list:
   award_list.append(award_url)
   break
 #Get info about each nomination for that category & year combination
+nomination_list=[]
 for url in award_list:
-  # Go to first nomination and get the nominee(s)name
+  # Get list of all nominations
   html_nomination = requests.get(url).text
   root_nomination = lxml.html.fromstring(html_nomination)
-  print root_nomination
-  nominees = root_nomination.cssselect("b a")
-  print nominees
-  break
-  
+  nominations = root_nomination.xpath("//td/div/a/@href")
+  print nominations
 
 # root.cssselect("div[align='left']")
 #
