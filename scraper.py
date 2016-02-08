@@ -28,10 +28,10 @@ award_nomination_dictionary = {}
 for url in award_list:
   html_nomination = requests.get(url).text
   root_nomination = lxml.html.fromstring(html_nomination)
-  nominations = root_nomination.xpath("//tr")
+  nominations = root_nomination.xpath("//table")
   for nomination in nominations:
     nomination_text = nomination.text_content()
-    nomination_id = nomination.xpath("//td/div/a/@href")
+    nomination_id = nomination.xpath("//tr/td/div/a/@href")
     print nomination_id
     break  
     
