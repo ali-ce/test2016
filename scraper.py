@@ -23,6 +23,7 @@ for url in year_list:
   award_list.append(award_url)
   break
 #Get nominations for each category & year combination
+year_scraped = 1
 for url in award_list:
   html_nomination = requests.get(url).text
   root_nomination = lxml.html.fromstring(html_nomination)
@@ -60,4 +61,5 @@ for url in award_list:
     }
   scraperwiki.sqlite.save(unique_keys=["ID"], data=data)
   data={}
-  break
+  year_scraped = year_scraped+1
+  print "Scraped "+year_scraped+" Oscar editions out of 87"
