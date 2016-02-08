@@ -26,12 +26,16 @@ for url in year_list:
 nomination_list=[]
 award_nomination_dictionary = {}
 for url in award_list:
-  #Get the movie for each nomination
   html_nomination = requests.get(url).text
   root_nomination = lxml.html.fromstring(html_nomination)
+  nominations = root_nomination.xpath("//td/div/a/@href")
+  nomination_id = nomination.partition("NominationID=")[2]
+  unique_id = "ID"+nomination_id+url
+  print unique_id
+  
   #Get movies for each nomination
-  for row in root_nomination.xpath("//tr[1]")]:
-    nominated_movies = row.text_content().partition(" -- ")[2]
+  #for row in root_nomination.xpath("//tr[1]")]:
+  #  nominated_movies = row.text_content().partition(" -- ")[2]
 #    nomination_win = 
  # print nominated_movies
   break
