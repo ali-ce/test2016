@@ -28,12 +28,13 @@ award_nomination_dictionary = {}
 for url in award_list:
   html_nomination = requests.get(url).text
   root_nomination = lxml.html.fromstring(html_nomination)
-  nominations = root_nomination.xpath("//table")
-  for nomination in nominations:
-    nomination_text = nomination.text_content()
-    nomination_id = nomination.xpath("//tr/td/div/a/@href")
-    print nomination_id
-    break  
+  nominations = root_nomination.xpath("//dl/table")
+  print nominations
+  #for nomination in nominations:
+   # nomination_text = nomination.text_content()
+    #nomination_id = nomination.xpath("//tr/td/div/a/@href")
+    #print nomination_id
+  break  
     
  # for nomination in nomination:
   #  nomination_id = nominations.partition("NominationID=")[2]
