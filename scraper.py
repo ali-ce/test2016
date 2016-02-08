@@ -28,7 +28,9 @@ for url in award_list:
   root_nomination = lxml.html.fromstring(html_nomination)
   text = "|".join(text.text_content() for text in root_nomination.xpath("//tr"))
   unique_id = "|".join(text.partition("NominationID=")[2]+url for text in root_nomination.xpath("//tr/td/div/a/@href"))
-  movie = "|".join(text.text_content().partition(" -- ")[2] for text in root_nomination.xpath("//tr[td]"))
+  movie = "|".join(text.partition(" -- ")[2] for text in root_nomination.xpath("//tr/td/text"))
+  print movie
+  break
   for text in root_nomination.xpath("//tr"):
     temp = text.text_content()
     win_list=[]
