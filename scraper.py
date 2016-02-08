@@ -32,9 +32,7 @@ for url in award_list:
   for nomination in nominations:
     print nominations.text_content()
   #nomination_id = nomination.xpath("//tr/td/div/a/@href")
-  
-  
-break  
+  break  
     
  # for nomination in nomination:
   #  nomination_id = nominations.partition("NominationID=")[2]
@@ -45,9 +43,7 @@ break
   #  nominated_movies = row.text_content().partition(" -- ")[2]
 #    nomination_win = 
  # print nominated_movies
-  break
-  
-  
+
   #nominations = root_nomination.xpath("//td/div/a/@href")
   #for nomination in nominations:
    # nomination_id = nomination.partition("NominationID=")[2]
