@@ -12,21 +12,18 @@ while start_edition <= this_edition:
   year_url = "http://awardsdatabase.oscars.org/ampas_awards/BasicSearch?action=searchLink&displayType=1&BSFromYear="+str(start_edition)
   start_edition = start_edition+1
   year_list.append(year_url)
-  print year_url
-  
 #Build queries 2: list of URLS per single award per year
 award_list=[]
 for url in year_list:
-  break
   html_year = requests.get(url).text
   root_year = lxml.html.fromstring(html_year)
   category_id_list=[]
   for category in root_year.xpath("//dl/div/a/@href"):
     category_id = category.partition("CategoryExact=")[2].partition("&")[0]
+    award_url = url+"&BSCategoryExact="+category_id
+    award_list.append(award_url)
     print category_id
     break
-  award_url = url+"&BSCategoryExact="+category_id
-  award_list.append(award_url)
 print award_list
 
 #Get nominations for each category & year combination
