@@ -20,10 +20,10 @@ for url in year_list:
   category_id_list=[]
   for category in root_year.xpath("//div/a/@href"):
     category_id = category.partition("CategoryExact=")[2].partition("&")[0]
-    if str(category_id) == "":
-      break
-    else:
+    if int(category_id) is int:
       category_id_list.append(category_id)
+    else:
+      print category_id
 #      award_url = url+"&BSCategoryExact="+category_id
 #      award_list.append(award_url)
   print category_id_list
