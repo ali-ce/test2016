@@ -16,8 +16,8 @@ while start_edition <= this_edition:
   
 #Build queries 2: list of URLS per single award per year
 award_list=[]
-break
 for url in year_list:
+  break
   html_year = requests.get(url).text
   root_year = lxml.html.fromstring(html_year)
   category_id_list=[]
