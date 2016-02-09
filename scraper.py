@@ -20,7 +20,7 @@ for url in year_list:
   category_id_list=[]
   for category in root_year.xpath("//div/a/@href"):
     category_id = category.partition("CategoryExact=")[2].partition("&")[0]
-    if int(category_id) is int:
+    if category_id is not "":
       category_id_list.append(category_id)
     else:
       print category_id
