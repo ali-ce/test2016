@@ -18,7 +18,7 @@ for url in year_list:
   html_year = requests.get(url).text
   root_year = lxml.html.fromstring(html_year)
   category_id_list=[]
-  category = root_year.xpath("//a/@href")
+  category = root_year.xpath("//dl/a/@href")
   print category
   break
   #  category_id = category.partition("CategoryExact=")[2].partition("&")[0]
