@@ -21,11 +21,11 @@ for url in year_list:
   category = root_year.xpath("//dl/div/a/@href")
   print category
   break
-    category_id = category.partition("CategoryExact=")[2].partition("&")[0]
-    award_url = url+"&BSCategoryExact="+category_id
-    award_list.append(award_url)
-    print category_id
-    break
+  #  category_id = category.partition("CategoryExact=")[2].partition("&")[0]
+  #  award_url = url+"&BSCategoryExact="+category_id
+  #  award_list.append(award_url)
+  #  print category_id
+  #  break
 print award_list
 
 #Get nominations for each category & year combination
