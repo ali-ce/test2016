@@ -7,11 +7,13 @@ import urllib
 #Build queries 1: list URLS of awards per year
 year_list = []
 this_edition = 87
-start_edition = 1
-while start_edition <= this_edition:
-  year_url = "http://awardsdatabase.oscars.org/ampas_awards/BasicSearch?action=searchLink&displayType=1&BSFromYear="+str(start_edition)
-  start_edition = start_edition+1
+editions_scraped = 0
+while editions_scraped <= this_edition:
+  editions_scraped = editions_scraped+1
+  year_url = "http://awardsdatabase.oscars.org/ampas_awards/BasicSearch?action=searchLink&displayType=1&BSFromYear="+str(editions_scraped)
+  
   year_list.append(year_url)
+  
 #Build queries 2: list of URLS per single award per year
 award_list=[]
 for url in year_list:
@@ -22,16 +24,8 @@ for url in year_list:
     if category_id is not "":
       award_url = url+"&BSCategoryExact="+category_id
       award_list.append(award_url)
-  print award_list
-  break
-  #  category_id = category.partition("CategoryExact=")[2].partition("&")[0]
-  #  award_url = url+"&BSCategoryExact="+category_id
-  #  award_list.append(award_url)
-  #  print category_id
-  #  break
 
 #Get nominations for each category & year combination
-year_scraped = 0
 for url in award_list:
   break
   html_nomination = requests.get(url).text
@@ -70,5 +64,4 @@ for url in award_list:
     }
   scraperwiki.sqlite.save(unique_keys=["ID"], data=data)
   data={}
-  year_scraped = year_scraped+1
-  print "Scraped "+str(year_scraped)+" Oscar editions out of "+str(this_edition)
+  print "Scraped "+str(editions_scraped)+" Oscar editions out of "+str(this_edition)
