@@ -21,10 +21,12 @@ for url in year_list:
   category_id = root_year.xpath("//dl/div[1]/a/@href")[0].partition("CategoryExact=")[2].partition("&")[0]
   award_url = url+"&BSCategoryExact="+category_id
   award_list.append(award_url)
-  
+print award_list
+
 #Get nominations for each category & year combination
 year_scraped = 0
 for url in award_list:
+  break
   html_nomination = requests.get(url).text
   root_nomination = lxml.html.fromstring(html_nomination)
   info = "|".join(text.text_content() for text in root_nomination.xpath("//tr"))
