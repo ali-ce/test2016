@@ -20,19 +20,15 @@ for url in year_list:
   category_id_list=[]
   for category in root_year.xpath("//div/a/@href"):
     category_id = category.partition("CategoryExact=")[2].partition("&")[0]
-    if category_id is int:
-      award_url = url+"&BSCategoryExact="+category_id
-      award_list.append(award_url)
-      print category_id
-    else:
-      break
-  break
+    award_url = url+"&BSCategoryExact="+category_id
+    award_list.append(award_url)
+    print category_id
   #  category_id = category.partition("CategoryExact=")[2].partition("&")[0]
   #  award_url = url+"&BSCategoryExact="+category_id
   #  award_list.append(award_url)
   #  print category_id
   #  break
-print award_list
+  print award_list
 
 #Get nominations for each category & year combination
 year_scraped = 0
