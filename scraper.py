@@ -18,8 +18,11 @@ for url in year_list:
   html_year = requests.get(url).text
   root_year = lxml.html.fromstring(html_year)
   category_id_list=[]
-  category = root_year.xpath("//div/dl/div/a/@href")
-  print category
+  for category in root_year.xpath("//div/a/@href")
+    category_id = category.partition("CategoryExact=")[2].partition("&")[0]
+    award_url = url+"&BSCategoryExact="+category_id
+    award_list.append(award_url)
+    print category_id
   break
   #  category_id = category.partition("CategoryExact=")[2].partition("&")[0]
   #  award_url = url+"&BSCategoryExact="+category_id
