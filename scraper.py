@@ -12,7 +12,7 @@ while editions_scraped <= this_edition:
   editions_scraped = editions_scraped+1
   year_url = "http://awardsdatabase.oscars.org/ampas_awards/BasicSearch?action=searchLink&displayType=1&BSFromYear="+str(editions_scraped)
   year_list.append(year_url)
-print "Year urls scraped"  
+print str(len(year_list))+" year urls scraped"  
 #Build queries 2: list of URLS per single award per year
 award_list=[]
 for url in year_list:
@@ -23,7 +23,7 @@ for url in year_list:
     if category_id is not "":
       award_url = url+"&BSCategoryExact="+category_id
       award_list.append(award_url)
-print "Award urls scraped"
+print str(len(award_list))+" award urls scraped"
 #Get nominations for each category & year combination
 for url in award_list:
   html_nomination = requests.get(url).text
