@@ -26,7 +26,6 @@ for url in year_list:
 print "Award urls scraped"
 #Get nominations for each category & year combination
 for url in award_list:
-  break
   html_nomination = requests.get(url).text
   root_nomination = lxml.html.fromstring(html_nomination)
   info = "|".join(text.text_content() for text in root_nomination.xpath("//tr"))
