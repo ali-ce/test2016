@@ -12,7 +12,7 @@ while editions_scraped < this_edition:
   editions_scraped = editions_scraped+1
   year_url = "http://awardsdatabase.oscars.org/ampas_awards/BasicSearch?action=searchLink&displayType=1&BSFromYear="+str(editions_scraped)
   year_list.append(year_url)
-print str(len(year_list)-1)+" year urls scraped"  
+print str(len(year_list))+" year urls scraped"  
 #Build queries 2: list of URLS per single award per year
 award_list=[]
 for url in year_list:
