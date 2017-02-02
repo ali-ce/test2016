@@ -6,7 +6,7 @@ import urllib
 
 #Build queries 1: list URLS of awards per year
 year_list = []
-this_edition = 87
+this_edition = 88
 editions_scraped = 0
 while editions_scraped < this_edition:
   editions_scraped = editions_scraped+1
