@@ -64,5 +64,5 @@ for url in award_list:
   scraperwiki.sqlite.save(unique_keys=["ID"], data=data)
   data={}
   scraped_awards = scraped_awards+1
-  print "Scraped "+str(scraped_awards)+" Oscar editions out of "+str(len(award_list))
+  print "Scraped "+str(scraped_awards)+" Oscar category-edition pairs out of "+str(len(award_list))
 print "Done!"
